@@ -1,1 +1,50 @@
-
+                    ┌───────────────────────┐
+                    │    Windows 10/11      │
+                    │                       │
+                    │ Wazuh Agent           │
+                    │ Windows Event Logs    │
+                    │ PowerShell Logs       │
+                    │ Sysmon Logs            │
+                    │ Process Events         │
+                    └───────────┬───────────┘
+                                │
+                         Encrypted Agent
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │    Wazuh Manager      │
+                    │                       │
+                    │ Decoders              │
+                    │ Rules                  │
+                    │ Correlation            │
+                    │ MITRE ATT&CK          │
+                    │ Active Response       │
+                    └───────────┬───────────┘
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │  Wazuh Indexer        │
+                    │  OpenSearch            │
+                    └───────────┬───────────┘
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │   Wazuh Dashboard     │
+                    │                       │
+                    │ Alerts                │
+                    │ MITRE ATT&CK          │
+                    │ Investigation         │
+                    │ Dashboards             │
+                    └───────────────────────┘
+                                │
+                                ▼
+                    ┌───────────────────────┐
+                    │ SOC Analyst           │
+                    │                       │
+                    │ Detect                │
+                    │ Investigate           │
+                    │ Contain               │
+                    │ Eradicate             │
+                    │ Recover               │
+                    │ Document              │
+                    └───────────────────────┘
