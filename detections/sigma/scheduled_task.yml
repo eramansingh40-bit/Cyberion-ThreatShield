@@ -1,1 +1,29 @@
+title: Suspicious Scheduled Task Creation
+id: 8f7c1a2e-1234-4b56-9abc-123456789003
+status: experimental
+description: Detects creation of scheduled tasks through schtasks.exe.
+author: Cyberion-ThreatShield
+date: 2026-08-11
+logsource:
+  product: windows
+  category: process_creation
 
+detection:
+  selection:
+    Image|endswith: '\schtasks.exe'
+    CommandLine|contains:
+      - '/create'
+      - '/Create'
+  condition: selection
+
+falsepositives:
+  - Legitimate scheduled task creation
+  - Software installation
+  - System administration
+
+level: medium
+
+tags:
+  - attack.persistence
+  - attack.execution
+  - attack.t1053.005
