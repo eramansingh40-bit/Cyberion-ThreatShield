@@ -1,1 +1,12 @@
+<group name="cyberion,windows,powershell,">
 
+  <rule id="100001" level="10">
+    <if_group>sysmon_event1</if_group>
+    <field name="win.eventdata.image">(?i)powershell\.exe</field>
+    <description>Cyberion: PowerShell execution detected</description>
+    <mitre>
+      <id>T1059.001</id>
+    </mitre>
+  </rule>
+
+</group>
