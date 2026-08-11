@@ -1,1 +1,32 @@
+title: Suspicious PowerShell Execution
+id: 8f7c1a2e-1234-4b56-9abc-123456789001
+status: experimental
+description: Detects suspicious PowerShell execution patterns on Windows endpoints.
+author: Cyberion-ThreatShield
+date: 2026-08-11
+logsource:
+  product: windows
+  category: process_creation
 
+detection:
+  selection:
+    Image|endswith: '\powershell.exe'
+    CommandLine|contains:
+      - '-enc'
+      - 'EncodedCommand'
+      - 'IEX'
+      - 'Invoke-Expression'
+      - 'DownloadString'
+      - 'FromBase64String'
+  condition: selection
+
+falsepositives:
+  - Administrative scripts
+  - Security testing
+  - Software deployment
+
+level: high
+
+tags:
+  - attack.execution
+  - attack.t1059.001
