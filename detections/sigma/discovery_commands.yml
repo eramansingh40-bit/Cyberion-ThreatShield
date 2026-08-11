@@ -1,1 +1,36 @@
+title: Windows Discovery Commands
+id: 8f7c1a2e-1234-4b56-9abc-123456789004
+status: experimental
+description: Detects common commands used for Windows system and network discovery.
+author: Cyberion-ThreatShield
+date: 2026-08-11
+logsource:
+  product: windows
+  category: process_creation
 
+detection:
+  selection:
+    CommandLine|contains:
+      - 'whoami'
+      - 'ipconfig'
+      - 'systeminfo'
+      - 'tasklist'
+      - 'net user'
+      - 'net group'
+      - 'arp -a'
+      - 'netstat'
+  condition: selection
+
+falsepositives:
+  - System administrators
+  - IT troubleshooting
+  - Helpdesk activity
+
+level: low
+
+tags:
+  - attack.discovery
+  - attack.t1033
+  - attack.t1087
+  - attack.t1057
+  - attack.t1016
