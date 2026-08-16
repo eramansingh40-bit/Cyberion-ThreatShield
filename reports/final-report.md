@@ -109,10 +109,6 @@ Detection coverage is documented in:
 
 ![Wazuh Agent](../evidence/wazuh-agent.png)
 
-### Detection Alert
-
-![Detection Alert](../evidence/detection-alert.png)
-
 ### Investigation
 
 ![Investigation](../evidence/investigation.png)
