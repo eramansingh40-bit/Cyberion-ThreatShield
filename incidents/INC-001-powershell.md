@@ -9,9 +9,9 @@
 | Status | Closed |
 | Detection | Suspicious PowerShell |
 | MITRE Technique | T1059.001 — PowerShell |
-| Host | TBD |
-| User | TBD |
-| Date/Time | TBD |
+| Host | amandeep-virtual-machine |
+| User | amandeep |
+| Date/Time |  |
 
 ## 1. Initial Alert
 
@@ -34,16 +34,19 @@ Investigate:
 
 | Time | Event | Evidence |
 |---|---|---|
-| TBD | PowerShell executed | Wazuh/Sysmon |
-| TBD | TBD | TBD |
+| Timestamp | PowerShell executed | Wazuh/Sysmon |
+| Aug 16, 2026 @ 17:47:13.735 - |$cmd = 'Write-Output "Wazuh PowerShell Detection Test"'
+$enc = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($cmd))
+powershell.exe -EncodedCommand $enc  powershell.exe -Command "IEX 'Write-Output WazuhTest'" | Suspicious PowerShell Execution detected |
 
 ## 4. Indicators of Compromise
 
-- IP addresses: TBD
-- Domains: TBD
-- File hashes: TBD
-- File paths: TBD
-- Processes: TBD
+- IP addresses: 192.168.224.1
+- Domains: 
+- File hashes: SHA256:
+7600FFE12DA441FE89D035B13801E8E91D064BC544A27B19A5CF49F6AB8B18F5
+- File paths: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+- Processes: powershell.exe
 
 ## 5. MITRE ATT&CK
 
